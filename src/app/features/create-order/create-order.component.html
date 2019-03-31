@@ -2,5 +2,41 @@
 	<p>
 		create-order works!
 	</p>
+	
+	<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
+		<div class="form-group">
+			<label>Что нужно сделать (кратко)?</label>
+			<input class="form-control" name="name" formControlName="name"/>
+			
+			<div class="alert alert-danger"
+				 *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched">
+				Обязательно для заполнения
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Подробно опишите ваше задание</label>
+			<input class="form-control" name="text" formControlName="text"/>
+			
+			<div class="alert alert-danger"
+				 *ngIf="myForm.controls['text'].invalid && myForm.controls['text'].touched">
+				Обязательно для заполнения
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Стоимость услуг</label>
+			<input class="form-control" name="price" type="number" formControlName="price"/>
+			
+			<div class="alert alert-danger"
+				 *ngIf="myForm.controls['price'].invalid && myForm.controls['price'].touched">
+				Укажите стоимость услуг в грн.
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<button class="btn btn-default" [disabled]="myForm.invalid">
+				Отправить
+			</button>
+		</div>
+	</form>
 </div>
 

@@ -7,6 +7,8 @@ import {CustomersAdsComponent} from "../customers-ads/customers-ads.component";
 import {RootComponent} from "./root.component";
 import {HomeComponent} from "../home/home.component";
 import {CreateOrderComponent} from "../create-order/create-order.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {SinglePageComponent} from "../single-page/single-page.component";
 
 const appRoutes: Routes = [
     // { path: '', redirectTo: 'root', pathMatch: 'full'},
@@ -15,7 +17,8 @@ const appRoutes: Routes = [
         {path: '', component: HomeComponent},
         {path: 'customers', component: CustomersAdsComponent},
         {path: 'masters', component: MastersAdsComponent},
-        {path: 'create', component: CreateOrderComponent}
+        {path: 'create', component: CreateOrderComponent},
+        {path: 'item/:id', component: SinglePageComponent}
     ]
     },
     {path: '**', redirectTo: ''}
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         RouterModule.forChild(appRoutes)
     ],
     declarations: [
@@ -31,7 +35,8 @@ const appRoutes: Routes = [
         RootComponent,
         MastersAdsComponent,
         CustomersAdsComponent,
-        CreateOrderComponent
+        CreateOrderComponent,
+        SinglePageComponent
     ]
 })
 export class RootModule {

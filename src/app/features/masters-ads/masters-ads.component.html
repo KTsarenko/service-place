@@ -1,34 +1,13 @@
 <ul class="list-order container">
-	<li class="item-order">
+	<li class="item-order" *ngFor="let request of requests" id="{{request.id}}">
 		<div class="image-order image-holder">
-			<img class="image-holder__img" src="assets/img/media/4fef9937-86c2-4d0c-b27f-5d2223b74269.jpg" alt="">
+			<img class="image-holder__img" src="assets/img/media/{{request.image}}" alt="">
 		</div>
 		<div class="desc-order">
-			<a class="name-order" href="#">Возьму на передержку котенка, кошечку.</a>
-			<div class="short-text">
-				Есть возможность взять на передержку кошечку или котёнка (возможно котят выводком).
-				Частный дом, для животного отдельная комната(естественно, без выхода на улицу).
-				Хорошее отношение гарантирую. Опыт "общения" с котиками более 7ми лет.
-				Есть свой кот, ухожен (прививки, проглистован, с ошейником). Ему доступ к вашему животному будет закрыт (при необходимости).
-				Взрослых котов (более года) не беру. Уход исключительно по вашим рекомендациям (работаю на дому, внимание обеспечу).
-				Цена договорная.
-			</div>
-			<a class="user-name" href="#">Виталина</a>
+			<a class="name-order" [routerLink]="['../item', request.id]">{{request.name}}</a>
+			<div class="short-text">{{request.text}}</div>
+			<a class="user-name" href="#">{{request.user}}</a>
 		</div>
-		<div class="price-order">250<span>грн.</span></div>
-	</li>
-	<li class="item-order">
-		<div class="image-order image-holder">
-			<img class="image-holder__img" src="assets/img/media/97320b75-94f0-491f-8038-279a389923d4.png" alt="">
-		</div>
-		<div class="desc-order">
-			<a class="name-order" href="#">Передержка животных</a>
-			<div class="short-text">
-				Есть возможность вашему любимцу выделить отдельную комнату,
-				где его не будут беспокоить. Если он ласков и общителен тогда может проживать в моей комнате.
-			</div>
-			<a class="user-name" href="#">Никата</a>
-		</div>
-		<div class="price-order">1000<span>грн.</span></div>
+		<div class="price-order">{{request.price}}<span>грн.</span></div>
 	</li>
 </ul>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {RequestModel} from "../../core/models/request.model";
+import {RequestService} from "../../core/services/request.service";
 
 @Component({
   selector: 'app-masters-ads',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MastersAdsComponent implements OnInit {
 
-  constructor() { }
+    public requests: Array<RequestModel>;
 
-  ngOnInit() {
-  }
+    constructor(private _requestService: RequestService) {
+    }
+
+    ngOnInit() {
+        this.getMastersRequest();
+    }
+
+    private getMastersRequest(): void {
+        this.requests = this._requestService.getMastersRequest();
+    }
 
 }

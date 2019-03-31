@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RequestService} from "../../core/services/request.service";
+import {RequestModel} from "../../core/models/request.model";
 
 @Component({
-  selector: 'app-customers-ads',
-  templateUrl: './customers-ads.component.html',
-  styleUrls: ['./customers-ads.component.scss']
+    selector: 'app-customers-ads',
+    templateUrl: './customers-ads.component.html',
+    styleUrls: ['./customers-ads.component.scss']
 })
 export class CustomersAdsComponent implements OnInit {
 
-  constructor() { }
+    public requests: Array<RequestModel>;
 
-  ngOnInit() {
-  }
+    constructor(private _requestService: RequestService) {
+    }
 
+    ngOnInit() {
+        this.getCustomersRequest();
+    }
+
+    private getCustomersRequest(): void {
+        this.requests = this._requestService.getCustomersRequest();
+    }
 }

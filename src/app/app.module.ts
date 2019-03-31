@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './features/auth/auth.component';
 import {UserService} from "./core/services/user.service";
 import { CreateOrderComponent } from './features/create-order/create-order.component';
+import { SinglePageComponent } from './features/single-page/single-page.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,7 +19,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
