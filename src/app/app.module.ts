@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './features/auth/auth.component';
 import {UserService} from "./core/services/user.service";
+import { CreateOrderComponent } from './features/create-order/create-order.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},

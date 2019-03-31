@@ -1,0 +1,67 @@
+.assistance {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 134px 0;
+    text-align: center;
+    position: relative;
+    margin-bottom: 60px;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 54px;
+}
+
+.description-text {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.how-it-works {
+    margin-bottom: 60px;
+}
+
+.list-step {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item-step {
+    width: 33.33%;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.icon-step {
+    height: 120px;
+    margin-bottom: 12px;
+}
+
+.name-step {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    color: #464748;
+}
+
+.desc-step {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    color: #464748;
+}
