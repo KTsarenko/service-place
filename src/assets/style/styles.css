@@ -7,6 +7,7 @@
 body {
     font-family: "Open Sans", sans-serif;
     font-size: 14px;
+    color: #464748;
     position: relative;
     margin: 0;
     overflow-x: hidden;
@@ -79,9 +80,9 @@ input {
     outline: none;
 }
 
-input:hover, input:focus {
-    border: 1px solid #39a31f !important;
-}
+/*input:hover, input:focus {*/
+    /*border: 1px solid #39a31f !important;*/
+/*}*/
 
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
@@ -144,10 +145,15 @@ input[type='number'] {
     background-color: #333333;
 }
 
+.btn:hover {
+    background-color: #252525;
+}
+
 .btn-orange {
     background-color: #f6921e;
 }
 
 .btn-orange:hover {
     background-color: #e24d1e;
+    color: #FFFFFF;
 }

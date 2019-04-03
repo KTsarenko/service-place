@@ -1,7 +1,5 @@
 <div class="create-order container">
-	<p>
-		create-order works!
-	</p>
+	<div class="form-title">Детали задания</div>
 	
 	<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">
 		<div class="form-group">
@@ -15,7 +13,7 @@
 		</div>
 		<div class="form-group">
 			<label>Подробно опишите ваше задание</label>
-			<input class="form-control" name="text" formControlName="text"/>
+			<textarea class="form-control" rows="3" formControlName="text"></textarea>
 			
 			<div class="alert alert-danger"
 				 *ngIf="myForm.controls['text'].invalid && myForm.controls['text'].touched">
@@ -23,7 +21,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label>Стоимость услуг</label>
+			<label>Стоимость работы</label>
 			<input class="form-control" name="price" type="number" formControlName="price"/>
 			
 			<div class="alert alert-danger"
@@ -31,9 +29,36 @@
 				Укажите стоимость услуг в грн.
 			</div>
 		</div>
+		<div class="form-group">
+			<label>Город</label>
+			<input class="form-control" name="city" type="text" formControlName="city"/>
+			
+			<div class="alert alert-danger"
+				 *ngIf="myForm.controls['city'].invalid && myForm.controls['city'].touched">
+				Обязательно для заполнения
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Адрес</label>
+			<input class="form-control" name="street" type="text" formControlName="street"/>
+			
+			<div class="alert alert-danger"
+				 *ngIf="myForm.controls['street'].invalid && myForm.controls['street'].dirty">
+				Обязательно для заполнения
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Дата выполнения задания</label>
+			<input class="form-control" name="date" type="date" formControlName="date"/>
+			
+			<div class="alert alert-danger"
+				 *ngIf="myForm.controls['date'].invalid && myForm.controls['date'].touched">
+				Обязательно для заполнения
+			</div>
+		</div>
 		
 		<div class="form-group">
-			<button class="btn btn-default" [disabled]="myForm.invalid">
+			<button class="btn" [disabled]="myForm.invalid">
 				Отправить
 			</button>
 		</div>

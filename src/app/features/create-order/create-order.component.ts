@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class CreateOrderComponent implements OnInit {
 
     myForm: FormGroup;
+
     constructor() {
         this.myForm = new FormGroup({
 
@@ -16,6 +17,9 @@ export class CreateOrderComponent implements OnInit {
             // 'image': new FormControl(),
             'text': new FormControl('', Validators.required),
             'price': new FormControl('', Validators.required),
+            'city': new FormControl('', Validators.required),
+            'street': new FormControl('', Validators.required),
+            'date': new FormControl('', Validators.required),
         });
     }
 
