@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {RequestService} from '../../core/services/request.service';
 
 @Component({
     selector: 'app-create-order',
@@ -10,7 +11,7 @@ export class CreateOrderComponent implements OnInit {
 
     myForm: FormGroup;
 
-    constructor() {
+    constructor(private _requestService: RequestService) {
         this.myForm = new FormGroup({
 
             'name': new FormControl('', Validators.required),
@@ -28,6 +29,7 @@ export class CreateOrderComponent implements OnInit {
 
     submit() {
         console.log(this.myForm.value);
+        this._requestService.createOrder(this.myForm.value);
     }
 
 

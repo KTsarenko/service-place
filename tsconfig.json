@@ -18,6 +18,6 @@
     ],
     "module": "es2015",
     "baseUrl": "./",
-    "noImplicitAny": true
+    "noImplicitAny": false
   }
 }

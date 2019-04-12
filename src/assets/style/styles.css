@@ -157,3 +157,16 @@ input[type='number'] {
     background-color: #e24d1e;
     color: #FFFFFF;
 }
+
+@media (max-width: 860px) {
+    .btn {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 440px) {
+    .btn {
+        font-size: 14px;
+        line-height: 34px;
+    }
+}

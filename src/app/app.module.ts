@@ -4,28 +4,28 @@ import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from './features/auth/auth.component';
+
 import {UserService} from "./core/services/user.service";
-import { CreateOrderComponent } from './features/create-order/create-order.component';
-import { SinglePageComponent } from './features/single-page/single-page.component';
+import {fbService} from './core/services/fb.service';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
-  // { path: '', component: HomeComponent},
-  { path: 'login', component: AuthComponent},
-  { path: 'home', loadChildren: 'app/features/root/root.module#RootModule' },
-  { path: '**', redirectTo: ''}
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
+    // { path: '', component: HomeComponent},
+    { path: 'login', component: AuthComponent},
+    { path: 'home', loadChildren: 'app/features/root/root.module#RootModule' },
+    { path: '**', redirectTo: ''}
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthComponent,
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [UserService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AuthComponent,
+    ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes)
+    ],
+    providers: [UserService, fbService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

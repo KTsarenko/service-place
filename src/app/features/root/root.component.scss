@@ -45,3 +45,50 @@ nav {
     text-align: center;
     color: #FFFFFF;
 }
+
+@media (max-width: 860px) {
+    .logo {
+        padding: 10px 0;
+    }
+    .nav-list__nav-item:not(:last-child) {
+        margin-right: 20px;
+    }
+    .nav-list__nav-link {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .header {
+        flex-direction: row;
+        padding: 0 20px;
+    }
+
+    nav {
+        border: none;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-right: 0;
+    }
+    .nav-list__nav-item:not(:last-child) {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 440px) {
+
+    .nav-list__nav-item:not(:last-child) {
+        margin-right: 0;
+    }
+
+    .nav-list__nav-link {
+        font-size: 16px;
+    }
+}
