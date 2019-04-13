@@ -9,6 +9,8 @@ import {HomeComponent} from '../home/home.component';
 import {CreateOrderComponent} from '../create-order/create-order.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SinglePageComponent} from '../single-page/single-page.component';
+import {CreateMastersComponent} from '../create-masters/create-masters.component';
+import {CreateCustomersComponent} from '../create-customers/create-customers.component';
 
 const appRoutes: Routes = [
     // { path: '', redirectTo: 'root', pathMatch: 'full'},
@@ -36,7 +38,9 @@ const appRoutes: Routes = [
         MastersAdsComponent,
         CustomersAdsComponent,
         CreateOrderComponent,
-        SinglePageComponent
+        SinglePageComponent,
+        CreateMastersComponent,
+        CreateCustomersComponent
     ]
 })
 export class RootModule {

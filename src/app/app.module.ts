@@ -7,6 +7,8 @@ import { AuthComponent } from './features/auth/auth.component';
 
 import {UserService} from "./core/services/user.service";
 import {fbService} from './core/services/fb.service';
+import { CreateCustomersComponent } from './features/create-customers/create-customers.component';
+import { CreateMastersComponent } from './features/create-masters/create-masters.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},

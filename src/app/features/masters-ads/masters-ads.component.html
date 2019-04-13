@@ -1,7 +1,7 @@
 <ul class="list-order container">
 	<li class="item-order" *ngFor="let request of requests" id="{{request.id}}">
 		<div class="image-order image-holder">
-			<img class="image-holder__img" src="assets/img/media/{{request.image}}" alt="">
+			<img class="image-holder__img" src="{{request.image}}" alt="">
 		</div>
 		<div class="desc-order">
 			<a class="name-order" [routerLink]="['../item', request.id]">{{request.name}}</a>

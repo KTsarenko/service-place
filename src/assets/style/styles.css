@@ -111,11 +111,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transition: background-color 5000s ease-in-out 0s;
 }
 
-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
+/*input {*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*appearance: none;*/
+/*}*/
 
 input[type='number'] {
     -moz-appearance: textfield;

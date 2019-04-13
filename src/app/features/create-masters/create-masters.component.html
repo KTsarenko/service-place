@@ -1,0 +1,63 @@
+<form [formGroup]="myFormMasters" novalidate (ngSubmit)="submitMasters()">
+	<div class="form-title">Заполните данные для создания предложения</div>
+  <div class="form-group">
+    <label>Что нужно сделать (кратко)?</label>
+    <input class="form-control" name="title" formControlName="title"/>
+    
+    <div class="alert alert-danger"
+         *ngIf="myFormMasters.controls['title'].invalid && myFormMasters.controls['title'].dirty">
+      Обязательно для заполнения
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Подробно опишите ваше задание</label>
+    <textarea class="form-control" rows="3" formControlName="text"></textarea>
+    
+    <div class="alert alert-danger"
+         *ngIf="myFormMasters.controls['text'].invalid && myFormMasters.controls['text'].dirty">
+      Обязательно для заполнения
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Стоимость работы</label>
+    <input class="form-control" name="price" type="number" formControlName="price"/>
+    
+    <div class="alert alert-danger"
+         *ngIf="myFormMasters.controls['price'].invalid && myFormMasters.controls['price'].dirty">
+      Укажите стоимость услуг в грн.
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Город</label>
+    <input class="form-control" name="city" type="text" formControlName="city"/>
+    
+    <div class="alert alert-danger"
+         *ngIf="myFormMasters.controls['city'].invalid && myFormMasters.controls['city'].dirty">
+      Обязательно для заполнения
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Адрес</label>
+    <input class="form-control" name="street" type="text" formControlName="street"/>
+    
+    <div class="alert alert-danger"
+         *ngIf="myFormMasters.controls['street'].invalid && myFormMasters.controls['street'].dirty">
+      Обязательно для заполнения
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Дата выполнения задания</label>
+    <input class="form-control" name="date" type="date" formControlName="date"/>
+    
+    <div class="alert alert-danger"
+         *ngIf="myFormMasters.controls['date'].invalid && myFormMasters.controls['date'].dirty">
+      Обязательно для заполнения
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <button class="btn" [disabled]="myFormMasters.invalid">
+      Отправить
+    </button>
+  </div>
+</form>
