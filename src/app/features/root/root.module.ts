@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {SinglePageComponent} from '../single-page/single-page.component';
 import {CreateMastersComponent} from '../create-masters/create-masters.component';
 import {CreateCustomersComponent} from '../create-customers/create-customers.component';
+import {UploadComponent} from '../upload/upload.component';
 
 const appRoutes: Routes = [
     // { path: '', redirectTo: 'root', pathMatch: 'full'},
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
         CreateOrderComponent,
         SinglePageComponent,
         CreateMastersComponent,
-        CreateCustomersComponent
+        CreateCustomersComponent,
+        UploadComponent,
     ]
 })
 export class RootModule {

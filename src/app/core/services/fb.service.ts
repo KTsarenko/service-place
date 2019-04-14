@@ -36,6 +36,7 @@ export class fbService {
         });
         return ordersCollection;
     }
+
     getCustomers() {
         const db = firebase.firestore();
         const ordersCollection = [];
@@ -54,11 +55,34 @@ export class fbService {
     createCustomers(data) {
         const db = firebase.firestore();
         const citiesRef = db.collection('customers');
-        citiesRef.doc().set(data);
+        citiesRef.doc().set(data)
+        .then(function () {
+            console.log('Document written customers');
+        })
+        .catch(function (error) {
+            console.error('Error adding document: ', error);
+        });
     }
+
     createMasters(data) {
         const db = firebase.firestore();
         const citiesRef = db.collection('masters');
-        citiesRef.doc().set(data);
+        citiesRef.doc().set(data)
+        .then(function () {
+            console.log('Document written masters');
+        })
+        .catch(function (error) {
+            console.error('Error adding document: ', error);
+        });
     }
+
+    getUpload(data) {
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
+        // var storage = customApp.storage();
+        // const db = firebase.firestore();
+
+        console.log(data)
+    }
+
 }
