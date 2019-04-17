@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {fbService} from "./fb.service";
-// import {Upload} from "../models/upload";
+import {fbService, firebase} from "./fb.service";
+import {Upload} from "../models/upload";
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class UploadService {
     }
 }
 
-/*export class UploadService {
+
+export class UploadService {
 
     constructor(private af: AngularFire, private db: AngularFireDatabase) {
     }
@@ -44,4 +46,10 @@ export class UploadService {
             }
         );
     }
-}*/
+
+    // Writes the file details to the realtime db
+    private saveFileData(upload: Upload) {
+        // this.db.list(`${this.basePath}/`).push(upload);
+    }
+
+}

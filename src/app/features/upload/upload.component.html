@@ -5,16 +5,6 @@
   Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
 </div>
 
-<label>
-  <input type="file" (change)="detectFiles($event)">
-</label>
-
-<button
-        [disabled]="!selectedFiles"
-        (click)="uploadSingle()">
-  
-  Upload Single
-</button>
 
 <label>
   <input type="file" (change)="detectFiles($event)" multiple>
