@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RequestService} from '../../core/services/request.service';
 
 @Component({
@@ -9,10 +9,17 @@ import {RequestService} from '../../core/services/request.service';
 })
 export class CreateCustomersComponent implements OnInit {
 
-    myFormCustomers: FormGroup;
+    form: FormGroup;
 
     constructor(private _requestService: RequestService) {
-        this.myFormCustomers = new FormGroup({
+    }
+
+    ngOnInit() {
+        this.initForm();
+    }
+
+    private initForm() {
+        this.form = new FormGroup({
             'title': new FormControl('', Validators.required),
             'image': new FormControl(),
             'text': new FormControl('', Validators.required),
@@ -20,15 +27,21 @@ export class CreateCustomersComponent implements OnInit {
             'city': new FormControl('', Validators.required),
             'street': new FormControl('', Validators.required),
             'date': new FormControl('', Validators.required),
+            'images': new FormArray([])
         });
     }
 
-    ngOnInit() {
+    submitCustomers() {
+        console.log(this.form.value);
+        this._requestService.createCustomers(this.form.value);
     }
 
-    submitCustomers() {
-        console.log(this.myFormCustomers.value);
-        this._requestService.createCustomers(this.myFormCustomers.value);
+    private addFileUrl(url) {
+        const images = this.form.get('images') as FormArray;
+        const item = new FormGroup({
+            'url': new FormControl(url)
+        });
+        images.push(item);
     }
 
 }

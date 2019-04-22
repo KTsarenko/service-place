@@ -18,7 +18,7 @@ export class RequestService {
         return this._fb.getMasters();
     }
 
-    public createCustomers(data) {
+    public createCustomers(data): any {
         return this._fb.createCustomers(data);
     }
     public createMasters(data) {

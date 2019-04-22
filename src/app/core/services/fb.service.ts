@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {forkJoin} from 'rxjs/index';
 
 declare const firebase: any;
 
@@ -56,33 +57,29 @@ export class fbService {
         const db = firebase.firestore();
         const citiesRef = db.collection('customers');
         citiesRef.doc().set(data)
-        .then(function () {
-            console.log('Document written customers');
-        })
-        .catch(function (error) {
-            console.error('Error adding document: ', error);
-        });
+            .then(function () {
+                console.log('Document written customers');
+            })
+            .catch(function (error) {
+                console.error('Error adding document: ', error);
+            });
     }
 
     createMasters(data) {
         const db = firebase.firestore();
         const citiesRef = db.collection('masters');
         citiesRef.doc().set(data)
-        .then(function () {
-            console.log('Document written masters');
-        })
-        .catch(function (error) {
-            console.error('Error adding document: ', error);
-        });
+            .then(function () {
+                console.log('Document written masters');
+            })
+            .catch(function (error) {
+                console.error('Error adding document: ', error);
+            });
     }
 
-    getUpload(data) {
-        const storage = firebase.storage();
-        const storageRef = storage.ref();
-        // var storage = customApp.storage();
-        // const db = firebase.firestore();
-
-        console.log(data)
+    uploadFiles(file) {
+        const storageRef = firebase.storage().ref();
+        return storageRef.child('images/' + file.name).put(file);
     }
 
 }

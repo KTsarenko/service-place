@@ -170,3 +170,12 @@ input[type='number'] {
         line-height: 34px;
     }
 }
+
+.d-none {
+    display: none !important;
+}
+
+.img-preview {
+    height: 100px;
+    width: 100px;
+}
