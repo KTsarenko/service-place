@@ -31,11 +31,10 @@ export class UploadComponent implements OnInit {
           if (files.hasOwnProperty(file)) {
               this._fbService.uploadFiles(files[file])
                   .then(res => {
-                      console.log(res);
-                          res.ref.getDownloadURL().then(url => {
-                              this.onChange.emit(url);
-                      });
+                      res.ref.getDownloadURL().then(url => {
+                          this.onChange.emit(url);
                   });
+              });
           }
       }
   }

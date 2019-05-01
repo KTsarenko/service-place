@@ -20,6 +20,5 @@ export class CustomersAdsComponent implements OnInit {
 
     private getCustomersRequest(): void {
         this.requests = this._requestService.getCustomersRequest();
-        console.log('requests', this.requests);
     }
 }

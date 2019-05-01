@@ -20,7 +20,7 @@
 }
 
 .desc-order {
-    width: calc(100% - 270px);
+    flex-grow: 1;
     padding-right: 40px;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .name-order {
-    display: block;
+    display: inline-block;
     color: #333333;
     font-size: 20px;
     margin-bottom: 16px;
@@ -48,7 +48,7 @@
     font-size: 15px;
     margin-bottom: 16px;
     overflow: hidden;
-    height: 52px;
+    max-height: 52px;
 }
 
 .user-name {

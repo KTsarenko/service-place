@@ -1,30 +1,30 @@
-<form [formGroup]="myFormMasters" novalidate (ngSubmit)="submitMasters()">
+<form [formGroup]="form" novalidate (ngSubmit)="submitMasters()">
 	<div class="form-title">Заполните данные для создания предложения</div>
   <div class="form-group">
-    <label>Что нужно сделать (кратко)?</label>
+    <label>Ваше предложение услуг (кратко).</label>
     <input class="form-control" name="title" formControlName="title"/>
     
     <div class="alert alert-danger"
-         *ngIf="myFormMasters.controls['title'].invalid && myFormMasters.controls['title'].dirty">
+         *ngIf="form.controls['title'].invalid && form.controls['title'].dirty">
       Обязательно для заполнения
     </div>
   </div>
   <div class="form-group">
-    <label>Подробно опишите ваше задание</label>
+    <label>Подробное описание Вашего предложения</label>
     <textarea class="form-control" rows="3" formControlName="text"></textarea>
     
     <div class="alert alert-danger"
-         *ngIf="myFormMasters.controls['text'].invalid && myFormMasters.controls['text'].dirty">
+         *ngIf="form.controls['text'].invalid && form.controls['text'].dirty">
       Обязательно для заполнения
     </div>
   </div>
   <div class="form-group">
-    <label>Стоимость работы</label>
+    <label>Стоимость</label>
     <input class="form-control" name="price" type="number" formControlName="price"/>
     
     <div class="alert alert-danger"
-         *ngIf="myFormMasters.controls['price'].invalid && myFormMasters.controls['price'].dirty">
-      Укажите стоимость услуг в грн.
+         *ngIf="form.controls['price'].invalid && form.controls['price'].dirty">
+      Укажите стоимость в грн.
     </div>
   </div>
   <div class="form-group">
@@ -32,31 +32,23 @@
     <input class="form-control" name="city" type="text" formControlName="city"/>
     
     <div class="alert alert-danger"
-         *ngIf="myFormMasters.controls['city'].invalid && myFormMasters.controls['city'].dirty">
-      Обязательно для заполнения
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Адрес</label>
-    <input class="form-control" name="street" type="text" formControlName="street"/>
-    
-    <div class="alert alert-danger"
-         *ngIf="myFormMasters.controls['street'].invalid && myFormMasters.controls['street'].dirty">
-      Обязательно для заполнения
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Дата выполнения задания</label>
-    <input class="form-control" name="date" type="date" formControlName="date"/>
-    
-    <div class="alert alert-danger"
-         *ngIf="myFormMasters.controls['date'].invalid && myFormMasters.controls['date'].dirty">
+         *ngIf="form.controls['city'].invalid && form.controls['city'].dirty">
       Обязательно для заполнения
     </div>
   </div>
   
+  <div class="form-group upload-wrap">
+    <label>Фото</label>
+    <app-upload (onChange)="addFileUrl($event)"></app-upload>
+    <div class="image-preview">
+      <div class="image-holder" *ngFor="let item of form.get('images')['controls']; let i = index;">
+        <img class="image-holder__img" src="{{form.controls['images']['controls'][i].value.url}}">
+      </div>
+    </div>
+  </div>
+  
   <div class="form-group">
-    <button class="btn" [disabled]="myFormMasters.invalid">
+    <button class="btn" [disabled]="form.invalid || isLoading">
       Отправить
     </button>
   </div>

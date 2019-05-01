@@ -175,7 +175,19 @@ input[type='number'] {
     display: none !important;
 }
 
-.img-preview {
+
+.image-preview {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+}
+
+.image-preview .image-holder {
     height: 100px;
-    width: 100px;
+    width: auto;
+    margin-right: 20px;
+}
+.image-preview .image-holder__img {
+    object-fit: contain;
+    width: auto;
 }

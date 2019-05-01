@@ -7,6 +7,7 @@ import { AuthComponent } from './features/auth/auth.component';
 
 import {UserService} from "./core/services/user.service";
 import {fbService} from './core/services/fb.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes)
     ],
     providers: [UserService, fbService],

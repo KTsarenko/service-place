@@ -1,11 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {fbService} from './fb.service';
 
 @Injectable()
 export class UserService {
 
-  constructor() { }
+    constructor(private _fb: fbService) {
+    }
 
-  getUser() {
-    console.log('authorization');
-  }
+
+    public signUp(email, password) {
+        return this._fb.signUp(email, password);
+    }
+
+    public signIn(email, password) {
+        return this._fb.signIn(email, password);
+    }
+
+    public logout() {
+        return this._fb.logout();
+    }
 }

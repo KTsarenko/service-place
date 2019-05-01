@@ -3,28 +3,24 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 
-import {SharedModule} from "../../shared/shared.module";
-
-import {MastersAdsComponent} from '../masters-ads/masters-ads.component';
-import {CustomersAdsComponent} from '../customers-ads/customers-ads.component';
+import {SharedModule} from '../../shared/shared.module';
 import {RootComponent} from './root.component';
 import {HomeComponent} from '../home/home.component';
 import {CreateOrderComponent} from '../create-order/create-order.component';
-import {SinglePageComponent} from '../single-page/single-page.component';
 import {CreateMastersComponent} from '../create-masters/create-masters.component';
 import {CreateCustomersComponent} from '../create-customers/create-customers.component';
+import {SimpleNotificationsModule} from 'angular2-notifications';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
 const appRoutes: Routes = [
-    // { path: '', redirectTo: 'root', pathMatch: 'full'},
     {
         path: '', component: RootComponent, children: [
             {path: '', component: HomeComponent},
-            {path: 'customers', component: CustomersAdsComponent},
-            {path: 'masters', component: MastersAdsComponent},
             {path: 'create', component: CreateOrderComponent},
-            {path: 'item/:id', component: SinglePageComponent}
+            { path: 'masters', loadChildren: 'app/features/masters-ads/masters-ads.module#MastersAdsModule' },
+            { path: 'customers', loadChildren: 'app/features/customers-ads/customers-ads.module#CustomersAdsModule' },
         ]
     },
     {path: '**', redirectTo: ''}
@@ -35,15 +31,13 @@ const appRoutes: Routes = [
         CommonModule,
         ReactiveFormsModule,
         SharedModule,
-        RouterModule.forChild(appRoutes)
+        RouterModule.forChild(appRoutes),
+        SimpleNotificationsModule.forRoot()
     ],
     declarations: [
         HomeComponent,
         RootComponent,
-        MastersAdsComponent,
-        CustomersAdsComponent,
         CreateOrderComponent,
-        SinglePageComponent,
         CreateMastersComponent,
         CreateCustomersComponent,
     ]

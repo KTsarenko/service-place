@@ -2,17 +2,20 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {UploadComponent} from './upload/upload.component';
+import {SinglePageComponent} from '../features/single-page/single-page.component';
 
 
 @NgModule({
     declarations: [
-        UploadComponent
+        UploadComponent,
+        SinglePageComponent
     ],
     imports: [
         CommonModule
     ],
     exports: [
-        UploadComponent
+        UploadComponent,
+        SinglePageComponent
     ]
 })
 export class SharedModule {

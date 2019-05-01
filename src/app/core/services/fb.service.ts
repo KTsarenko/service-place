@@ -53,6 +53,12 @@ export class fbService {
         return ordersCollection;
     }
 
+    getSingle(id, collection) {
+        const db = firebase.firestore();
+        const docRef = db.collection(collection).doc(id);
+        return docRef.get();
+    }
+
     createCustomers(data) {
         const db = firebase.firestore();
         const citiesRef = db.collection('customers');
@@ -68,18 +74,25 @@ export class fbService {
     createMasters(data) {
         const db = firebase.firestore();
         const citiesRef = db.collection('masters');
-        citiesRef.doc().set(data)
-            .then(function () {
-                console.log('Document written masters');
-            })
-            .catch(function (error) {
-                console.error('Error adding document: ', error);
-            });
+        return citiesRef.doc().set(data);
+
     }
 
     uploadFiles(file) {
         const storageRef = firebase.storage().ref();
         return storageRef.child('images/' + file.name).put(file);
+    }
+
+    public signUp(email, password) {
+        return firebase.auth().createUserWithEmailAndPassword(email, password);
+    }
+
+    public signIn(email, password) {
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+    }
+
+    public logout() {
+        return firebase.auth().signOut();
     }
 
 }

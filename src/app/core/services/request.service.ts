@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {RequestModel} from "../models/request.model";
+// import {RequestModel} from "../models/request.model";
 import {fbService} from './fb.service';
 
 @Injectable({
@@ -23,6 +23,11 @@ export class RequestService {
     }
     public createMasters(data) {
         return this._fb.createMasters(data);
+    }
+
+
+    public getSingleRequest(id, collection) {
+        return this._fb.getSingle(id, collection);
     }
 
 }

@@ -21,7 +21,6 @@ export class CreateCustomersComponent implements OnInit {
     private initForm() {
         this.form = new FormGroup({
             'title': new FormControl('', Validators.required),
-            'image': new FormControl(),
             'text': new FormControl('', Validators.required),
             'price': new FormControl('', Validators.required),
             'city': new FormControl('', Validators.required),
@@ -32,11 +31,10 @@ export class CreateCustomersComponent implements OnInit {
     }
 
     submitCustomers() {
-        console.log(this.form.value);
         this._requestService.createCustomers(this.form.value);
     }
 
-    private addFileUrl(url) {
+    public addFileUrl(url) {
         const images = this.form.get('images') as FormArray;
         const item = new FormGroup({
             'url': new FormControl(url)

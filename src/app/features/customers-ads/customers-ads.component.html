@@ -2,10 +2,10 @@
 <ul class="list-order container">
 	<li class="item-order" *ngFor="let request of requests" id="{{request.id}}">
 		<div class="image-order image-holder">
-			<img class="image-holder__img" src="{{request.images[0].url}}" alt="">
+			<img class="image-holder__img" src="{{ request.images?.length > 0 ? request.images[0].url : 'assets/img/icons/default.jpg'}}" alt="">
 		</div>
 		<div class="desc-order">
-			<a class="name-order" [routerLink]="['../item', request.id]">{{request.title}} </a>
+			<a class="name-order" [routerLink]="['../', request.id]">{{request.title}} </a>
 			<div class="short-text">{{request.text}}</div>
 			<a class="user-name" href="#">{{request.user}}</a>
 		</div>
