@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {RequestService} from '../../core/services/request.service';
+import {NotificationsService} from 'angular2-notifications';
 
 @Component({
     selector: 'app-create-customers',
@@ -10,8 +11,10 @@ import {RequestService} from '../../core/services/request.service';
 export class CreateCustomersComponent implements OnInit {
 
     form: FormGroup;
+    public isLoading: boolean = false;
 
-    constructor(private _requestService: RequestService) {
+    constructor(private _requestService: RequestService,
+                private _notificationsService: NotificationsService) {
     }
 
     ngOnInit() {
@@ -31,7 +34,24 @@ export class CreateCustomersComponent implements OnInit {
     }
 
     submitCustomers() {
-        this._requestService.createCustomers(this.form.value);
+        this._requestService.createCustomers(this.form.value)
+            .then(res => {
+                console.log('Document written masters');
+                this._notificationsService.success('Success', null, {
+                    timeOut: 2000,
+                    showProgressBar: true,
+                    pauseOnHover: true,
+                    clickToClose: false,
+                    clickIconToClose: true
+                });
+                this.form.reset();
+            })
+            .catch(error => {
+                console.error('Error adding document: ', error);
+            })
+            .finally(() => {
+                this.isLoading = false;
+            });
     }
 
     public addFileUrl(url) {

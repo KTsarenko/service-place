@@ -36,7 +36,7 @@ export class CreateMastersComponent implements OnInit {
         this._requestService.createMasters(this.form.value)
             .then(res => {
                 console.log('Document written masters');
-                this._notificationsService.success('Success', {
+                this._notificationsService.success('Success', null,{
                     timeOut: 2000,
                     showProgressBar: true,
                     pauseOnHover: true,

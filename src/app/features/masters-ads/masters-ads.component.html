@@ -1,7 +1,7 @@
 <ul class="list-order container">
 	<li class="item-order" *ngFor="let request of requests" id="{{request.id}}">
-		<div class="image-order image-holder" *ngIf="request.images !== undefined && request.images.length > 0">
-			<img class="image-holder__img" src="{{request.images[0].url}}" alt="">
+		<div class="image-order image-holder">
+			<img class="image-holder__img" src="{{ request.images?.length > 0 ? request.images[0].url : 'assets/img/icons/default.jpg'}}" alt="">
 		</div>
 		<div class="desc-order">
 			<a class="name-order" [routerLink]="['../', request.id]">{{request.title}}</a>

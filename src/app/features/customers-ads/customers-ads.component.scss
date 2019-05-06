@@ -20,7 +20,7 @@
 }
 
 .desc-order {
-    flex-grow: 1;
+    width: calc(100% - 270px);
     padding-right: 40px;
 }
 
@@ -41,6 +41,9 @@
     color: #333333;
     font-size: 20px;
     margin-bottom: 16px;
+    &:hover {
+        color: #007fc1;
+    }
 }
 
 .short-text {

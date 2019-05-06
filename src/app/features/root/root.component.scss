@@ -34,7 +34,7 @@ nav {
     font-weight: 400;
     line-height: 27px;
     text-transform: uppercase;
-    &:hover, &.active {
+    &.active {
         color: #007fc1;
     }
 }
@@ -44,6 +44,14 @@ nav {
     padding: 40px 0;
     text-align: center;
     color: #FFFFFF;
+}
+
+@media (min-width: 860px) {
+    .nav-list__nav-link {
+        &:hover {
+            color: #007fc1;
+        }
+    }
 }
 
 @media (max-width: 860px) {
@@ -56,6 +64,7 @@ nav {
     .nav-list__nav-link {
         font-size: 18px;
         line-height: 22px;
+
     }
 
 }

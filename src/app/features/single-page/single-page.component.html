@@ -1,15 +1,15 @@
-
-<div class="container">
-    <div class="image-wrap" *ngIf="request.images?.length > 0">
+<div class="order-wrap container">
+	<div class="order-wrap__head">
+		<div class="name-order">{{request.title}}</div>
+		<div class="price-order">{{request.price}}<span>грн.</span></div>
+	</div>
+	
+	<div class="text-order">{{request.text}}</div>
+	<!--<a class="user-name" href="#">{{request.user}}</a>-->
+	
+	<div class="image-wrap" *ngIf="request.images?.length > 0">
 		<div class="image-order image-holder" *ngFor="let image of request.images">
 			<img class="image-holder__img" src="{{image.url}}" alt="">
 		</div>
 	</div>
-   
-    <div class="desc-order">
-      <a class="name-order">{{request.title}} </a>
-      <div class="short-text">{{request.text}}</div>
-      <a class="user-name" href="#">{{request.user}}</a>
-    </div>
-    <div class="price-order">{{request.price}}<span>грн.</span></div>
 </div>

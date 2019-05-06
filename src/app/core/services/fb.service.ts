@@ -62,13 +62,7 @@ export class fbService {
     createCustomers(data) {
         const db = firebase.firestore();
         const citiesRef = db.collection('customers');
-        citiesRef.doc().set(data)
-            .then(function () {
-                console.log('Document written customers');
-            })
-            .catch(function (error) {
-                console.error('Error adding document: ', error);
-            });
+        return citiesRef.doc().set(data);
     }
 
     createMasters(data) {
