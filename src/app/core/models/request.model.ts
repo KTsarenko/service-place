@@ -1,7 +1,7 @@
 
 export interface RequestModel {
-    id: number;
-    name: string;
+    id: string;
+    title: string;
     text: string;
     user: string;
     price: number;

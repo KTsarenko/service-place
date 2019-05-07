@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RequestService} from '../../core/services/request.service';
 import {Router} from '@angular/router';
+import {RequestModel} from '../../core/models/request.model';
 
 @Component({
     selector: 'app-single-page',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class SinglePageComponent implements OnInit {
 
-    public request: Object = {};
+    public request: any;
 
     constructor(private _requestService: RequestService,
                 private router: Router) {
@@ -18,6 +19,7 @@ export class SinglePageComponent implements OnInit {
     ngOnInit() {
         const [blank, container, collection, id] = this.router.url.split('/');
         this.getSingleRequest(id, collection);
+        this.request = {};
     }
 
     private getSingleRequest(id, collection): void {
