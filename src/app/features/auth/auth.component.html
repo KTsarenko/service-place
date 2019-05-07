@@ -1,7 +1,61 @@
-<p>
-  auth works!
-</p>
-<p>{{ title }}</p>
-<button type="button" (click)="signUp()">SIGN UP</button>
-<button type="button" (click)="signIn()">SIGN IN</button>
-<button type="button" (click)="logout()">LOGOUT</button>
+<div class="form-wrapper">
+	<a class="btn-back" routerLink="/home">На Главную</a>
+	<div class="formAuth" *ngIf="showAuthForm == 'login'">
+		<!-- Login Form -->
+		<div class="title-form">Вход</div>
+		<form [formGroup]="loginForm">
+			
+			<input type="text" placeholder="Логин" formControlName="username" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+			<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+				<div *ngIf="f.username.errors.required">Username is required</div>
+			</div>
+			
+			<input type="password" placeholder="Пароль" formControlName="password" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+			<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+				<div *ngIf="f.password.errors.required">Password is required</div>
+			</div>
+			<button type="submit" (click)="signIn()" [disabled]="loading">войти</button>
+		</form>
+		
+		
+		<div class="formFooter">
+			<a class="underlineHover" href="#">Забыли пароль?</a>
+			<span class="underlineHover" (click)="showAuthForm = 'signup'">Регистрация</span>
+		</div>
+	
+	</div>
+	
+	<div class="formAuth" *ngIf="showAuthForm == 'signup'">
+		<div class="title-form">Регистрация</div>
+		<!-- SignUp Form -->
+		<form [formGroup]="loginForm">
+			
+			<input type="text" placeholder="Логин" formControlName="username" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+			<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+				<div *ngIf="f.username.errors.required">Username is required</div>
+			</div>
+			
+			<input type="password" placeholder="Пароль" formControlName="password" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+			<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+				<div *ngIf="f.password.errors.required">Password is required</div>
+			</div>
+			<button type="submit" (click)="signUp()" [disabled]="loading">создать</button>
+		</form>
+		
+		
+		<div class="formFooter">
+			<a class="underlineHover" href="#">Забыли пароль?</a>
+			<span class="underlineHover" (click)="showAuthForm = 'login'">Вход</span>
+		</div>
+	
+	</div>
+	
+</div>
+
+<button type="button" (click)="logout()" style="display: none">выйти</button>
+
+<simple-notifications></simple-notifications>

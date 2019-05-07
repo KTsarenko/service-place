@@ -10,7 +10,6 @@ import {CreateOrderComponent} from '../create-order/create-order.component';
 import {CreateMastersComponent} from '../create-masters/create-masters.component';
 import {CreateCustomersComponent} from '../create-customers/create-customers.component';
 import {SimpleNotificationsModule} from 'angular2-notifications';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 

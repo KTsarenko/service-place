@@ -23,6 +23,19 @@ export class fbService {
         firebase.initializeApp(config);
     }
 
+    signedUser() {
+        console.log('signedUser');
+        const user = firebase.auth().currentUser;
+
+        if (user) {
+            // User is signed in.
+            console.log('User is signed in.');
+        } else {
+            // No user is signed in.
+            console.log('No user is signed in.');
+        }
+    }
+
     getMasters() {
         const db = firebase.firestore();
         const ordersCollection = [];

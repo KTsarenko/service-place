@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {fbService} from '../../core/services/fb.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RootComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _fb: fbService) { }
 
   ngOnInit() {
+      this._fb.signedUser();
   }
 
 }

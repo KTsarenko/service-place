@@ -39,6 +39,26 @@ nav {
     }
 }
 
+.nav-auth {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    cursor: pointer;
+    svg, img {
+        height: 100%;
+        width: 100%;
+    }
+    &:hover {
+        svg path {
+            fill: #007fc1;
+        }
+    }
+}
+
 .footer {
     background-color: #333333;
     padding: 40px 0;
