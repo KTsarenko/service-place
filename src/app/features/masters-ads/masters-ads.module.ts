@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MastersAdsComponent} from './masters-ads.component';
 import {SinglePageComponent} from '../single-page/single-page.component';
 import {SharedModule} from '../../shared/shared.module';
+import {GalleryComponent} from '../../shared/gallery/gallery.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [
-        MastersAdsComponent
+        MastersAdsComponent,
+        GalleryComponent
     ],
     imports: [
         CommonModule,

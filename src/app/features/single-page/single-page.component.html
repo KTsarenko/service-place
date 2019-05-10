@@ -7,9 +7,11 @@
 	<div class="text-order">{{request.text}}</div>
 	<!--<a class="user-name" href="#">{{request.user}}</a>-->
 	
-	<div class="image-wrap" *ngIf="request.images?.length > 0">
+	<div class="image-wrap" *ngIf="request?.images?.length > 0">
 		<div class="image-order image-holder" *ngFor="let image of request.images">
 			<img class="image-holder__img" src="{{image.url}}" alt="">
 		</div>
 	</div>
+	<p>gallery</p>
+	<ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
 </div>

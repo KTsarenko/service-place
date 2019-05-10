@@ -3,19 +3,24 @@ import {CommonModule} from '@angular/common';
 
 import {UploadComponent} from './upload/upload.component';
 import {SinglePageComponent} from '../features/single-page/single-page.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import {NgxGalleryModule} from 'ngx-gallery';
 
 
 @NgModule({
     declarations: [
         UploadComponent,
-        SinglePageComponent
+        SinglePageComponent,
+        // GalleryComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        NgxGalleryModule
     ],
     exports: [
         UploadComponent,
-        SinglePageComponent
+        SinglePageComponent,
+        // GalleryComponent
     ]
 })
 export class SharedModule {
