@@ -10,11 +10,12 @@ import {fbService} from './core/services/fb.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SimpleNotificationsModule} from 'angular2-notifications';
+import {PublicGuard} from './core/guards/public.guard';
+
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
-    // { path: '', component: HomeComponent},
-    { path: 'home/auth', component: AuthComponent},
+    { path: 'auth', component: AuthComponent, canActivate: [PublicGuard]},
     { path: 'home', loadChildren: 'app/features/root/root.module#RootModule' },
     { path: '**', redirectTo: ''}
 ];

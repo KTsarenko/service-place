@@ -11,7 +11,7 @@ import {NgxGalleryModule} from 'ngx-gallery';
     declarations: [
         UploadComponent,
         SinglePageComponent,
-        // GalleryComponent
+        GalleryComponent
     ],
     imports: [
         CommonModule,
@@ -20,7 +20,7 @@ import {NgxGalleryModule} from 'ngx-gallery';
     exports: [
         UploadComponent,
         SinglePageComponent,
-        // GalleryComponent
+        GalleryComponent
     ]
 })
 export class SharedModule {

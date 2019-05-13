@@ -17,9 +17,16 @@
 				<li class="nav-list__nav-item">
 					<a class="nav-list__nav-link" routerLink="create" routerLinkActive="active">Оформить заявку</a>
 				</li>
+				
+				<li class="nav-list__nav-item" *ngIf="_fb.isLogined">
+					<a routerLink="profile/{{_fb.userUuid}}" type="button" >profile</a>
+				</li>
+				<li class="nav-list__nav-item" *ngIf="_fb.isLogined">
+					<button type="button" (click)="logout()">logout</button>
+				</li>
 			</ul>
 			<div class="nav-auth">
-				<a routerLink="auth">
+				<a routerLink="/auth" *ngIf="!_fb.isLogined">
 					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 						 width="95.667px" height="95.667px" viewBox="0 0 95.667 95.667" style="enable-background:new 0 0 95.667 95.667;"
 						 xml:space="preserve">

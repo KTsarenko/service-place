@@ -5,7 +5,7 @@
 		<div class="title-form">Вход</div>
 		<form [formGroup]="loginForm">
 			
-			<input type="text" placeholder="Логин" formControlName="username" class="form-control"
+			<input type="text" placeholder="Логин" name="username" formControlName="username" class="form-control"
 				   [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
 			<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
 				<div *ngIf="f.username.errors.required">Username is required</div>

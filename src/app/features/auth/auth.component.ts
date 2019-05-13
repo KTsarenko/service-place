@@ -76,20 +76,27 @@ export class AuthComponent implements OnInit {
         this._userService.signIn(this.loginForm.value.username, this.loginForm.value.password)
             .then(res => {
                 console.log('res', res);
+                this._notificationsService.success('Success', null,{
+                    timeOut: 4000,
+                    showProgressBar: true,
+                    pauseOnHover: true,
+                    clickToClose: true,
+                    clickIconToClose: true
+                });
                 this.router.navigate([this.returnUrl]);
             })
-            .catch(function (error) {
+            .catch(error => {
                 // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log('errorCode', errorCode);
-                // this._notificationsService.success('Success', null,{
-                //     timeOut: 2000,
-                //     showProgressBar: true,
-                //     pauseOnHover: true,
-                //     clickToClose: false,
-                //     clickIconToClose: true
-                // });
+                this._notificationsService.error('Error', errorMessage,{
+                    timeOut: 4000,
+                    showProgressBar: true,
+                    pauseOnHover: true,
+                    clickToClose: true,
+                    clickIconToClose: true
+                });
 
             });
         this.loading = false;
@@ -99,6 +106,7 @@ export class AuthComponent implements OnInit {
         this._userService.logout()
             .then(res => {
                 console.log('logout', res);
+                console.log('logout', res.uid);
             })
             .catch(function (error) {
                 // Handle Errors here.

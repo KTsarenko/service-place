@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {fbService} from './core/services/fb.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Онлайн-сервис заказа услуг';
+    constructor(private _fb: fbService) {
+        this._fb.initFbApp();
+    }
 }

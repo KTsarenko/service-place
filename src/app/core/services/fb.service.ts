@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {forkJoin} from 'rxjs/index';
+import {forkJoin, Observable} from 'rxjs/index';
 
 declare const firebase: any;
 
@@ -9,8 +9,13 @@ declare const firebase: any;
 
 export class fbService {
 
-    constructor() {
+    isLogined: boolean = false;
+    userUuid: string = '';
 
+    constructor() {
+    }
+
+    public initFbApp() {
         const config = {
             apiKey: 'AIzaSyBuNZxv2kk1WjY65WO1g2hI0aQg0lZfuSc',
             authDomain: 'serviceplace-kt.firebaseapp.com',
@@ -19,21 +24,15 @@ export class fbService {
             storageBucket: 'serviceplace-kt.appspot.com',
             messagingSenderId: '603384281755'
         };
-
         firebase.initializeApp(config);
+        this.authCheck();
     }
 
-    signedUser() {
-        console.log('signedUser');
-        const user = firebase.auth().currentUser;
-
-        if (user) {
-            // User is signed in.
-            console.log('User is signed in.');
-        } else {
-            // No user is signed in.
-            console.log('No user is signed in.');
-        }
+    private authCheck() {
+        firebase.auth().onAuthStateChanged(user => {
+            this.isLogined = !!user;
+            this.userUuid = user ? user.uid : '';
+        });
     }
 
     getMasters() {
@@ -100,6 +99,10 @@ export class fbService {
 
     public logout() {
         return firebase.auth().signOut();
+    }
+
+    public getProfile() {
+        return firebase.firestore().collection('masters').doc('SyNbcvMnsKjarngihdIF').get();
     }
 
 }
