@@ -1,0 +1,41 @@
+
+.profile-wrap {
+  display: flex;
+  padding-top: 50px;
+}
+
+.profile-foto {
+  width: 150px;
+  margin-right: 60px;
+}
+
+.profile-info__title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #464748;
+}
+
+.profile-info {
+    .input-holder {
+        font-size: 18px;
+        font-weight: 300;
+        margin-bottom: 16px;
+        color: #464748;
+    }
+
+    input {
+        font-size: 18px;
+        font-weight: 300;
+    }
+    label {
+        margin-right: 20px;
+    }
+
+    input:disabled {
+        background-color: transparent;
+        border: none;
+    }
+}
+
+

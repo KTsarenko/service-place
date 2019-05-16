@@ -64,7 +64,6 @@ export class SinglePageComponent implements OnInit {
         this._requestService.getSingleRequest(id, collection)
             .then(doc => {
                 if (doc.exists) {
-                    console.log('Document data:', doc.data());
                     this.request = doc.data();
                 } else {
                     console.log('No such document!');

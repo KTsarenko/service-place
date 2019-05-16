@@ -28,7 +28,9 @@ export class AuthComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
+            name: ['', Validators.required],
+            surname: ['', Validators.required],
+            email: ['', Validators.required],
             password: ['', Validators.required]
         });
 
@@ -49,10 +51,14 @@ export class AuthComponent implements OnInit {
 
         this.loading = true;
 
-        this._userService.signUp(this.loginForm.value.username, this.loginForm.value.password)
+        this._userService.signUp(this.loginForm.value.email, this.loginForm.value.password)
             .then(res => {
                 console.log('res', res);
                 this.router.navigate([this.returnUrl]);
+              this._userService.setProfile(this.loginForm.value, res.user.uid)
+                .then(data => {
+                  console.log('res', data);
+                });
             })
             .catch(function (error) {
                 // Handle Errors here.
@@ -73,7 +79,7 @@ export class AuthComponent implements OnInit {
 
         this.loading = true;
 
-        this._userService.signIn(this.loginForm.value.username, this.loginForm.value.password)
+        this._userService.signIn(this.loginForm.value.email, this.loginForm.value.password)
             .then(res => {
                 console.log('res', res);
                 this._notificationsService.success('Success', null,{

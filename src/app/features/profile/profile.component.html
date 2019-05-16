@@ -1,3 +1,23 @@
-<p>
-  profile works!
-</p>
+<div class="profile-wrap container">
+	<div class="profile-foto">
+		<img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" alt="">
+	</div>
+	<div class="profile-info">
+		<div class="profile-info__title">Ваши данные</div>
+		<form [formGroup]="profileForm">
+			<div class="input-holder">
+				<label for="name">Имя</label>
+				<input type="text" id="name" formControlName="name" disabled>
+			</div>
+			<div class="input-holder">
+				<label for="surname">Фамилия</label>
+				<input type="text" id="surname" formControlName="surname" disabled>
+			</div>
+			<div class="input-holder">
+				<label for="email">Email</label>
+				<input type="text" id="email" formControlName="email" disabled>
+			</div>
+		</form>
+		<button class="btn btn-blue">изменить</button>
+	</div>
+</div>

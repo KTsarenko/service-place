@@ -19,4 +19,8 @@ export class UserService {
     public logout() {
         return this._fb.logout();
     }
+
+    public setProfile(data, uid) {
+      return this._fb.setProfile(data, uid);
+    }
 }

@@ -5,10 +5,10 @@
 		<div class="title-form">Вход</div>
 		<form [formGroup]="loginForm">
 			
-			<input type="text" placeholder="Логин" name="username" formControlName="username" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
-			<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-				<div *ngIf="f.username.errors.required">Username is required</div>
+			<input type="text" placeholder="Email" name="username" formControlName="email" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+			<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+				<div *ngIf="f.email.errors.required">Username is required</div>
 			</div>
 			
 			<input type="password" placeholder="Пароль" formControlName="password" class="form-control"
@@ -31,17 +31,28 @@
 		<div class="title-form">Регистрация</div>
 		<!-- SignUp Form -->
 		<form [formGroup]="loginForm">
+			<input type="text" placeholder="Имя" formControlName="name" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+			<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+				<div *ngIf="f.name.errors.required">Ведите имя</div>
+			</div>
 			
-			<input type="text" placeholder="Логин" formControlName="username" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
-			<div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-				<div *ngIf="f.username.errors.required">Username is required</div>
+			<input type="text" placeholder="Фамилия" formControlName="surname" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.surname.errors }"/>
+			<div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+				<div *ngIf="f.surname.errors.required">Ведите фамилию</div>
+			</div>
+			
+			<input type="text" placeholder="Email" formControlName="email" class="form-control"
+				   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+			<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+				<div *ngIf="f.email.errors.required">Ведите ваш email</div>
 			</div>
 			
 			<input type="password" placeholder="Пароль" formControlName="password" class="form-control"
 				   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
 			<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-				<div *ngIf="f.password.errors.required">Password is required</div>
+				<div *ngIf="f.password.errors.required">Укажите пароль</div>
 			</div>
 			<button type="submit" (click)="signUp()" [disabled]="loading">создать</button>
 		</form>

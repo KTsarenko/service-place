@@ -4,3 +4,12 @@
     height: 30px;
     background-color: #007fc1;
 }
+
+.ngx-gallery-action {
+    background: red;
+    display: inline-block;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    z-index: 99;
+}

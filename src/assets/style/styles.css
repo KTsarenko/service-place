@@ -167,6 +167,14 @@ input[type='number'] {
     color: #FFFFFF;
 }
 
+.btn-blue {
+    background-color: #007fc1;
+}
+
+.btn-blue:hover {
+    background-color: #025e8d;
+}
+
 @media (max-width: 860px) {
     .btn {
         font-size: 16px;
@@ -199,4 +207,20 @@ input[type='number'] {
 .image-preview .image-holder__img {
     object-fit: contain;
     width: auto;
+}
+
+
+.ngx-gallery-icon.ngx-gallery-arrow {
+    width: 30px;
+    height: 30px;
+    background-color: #007fc1;
+}
+
+.ngx-gallery-preview-icons .ngx-gallery-icon {
+    background: red;
+    display: inline-block;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    z-index: 99;
 }
