@@ -1,13 +1,27 @@
-<ul class="list-order container">
-	<li class="item-order" *ngFor="let request of requests" id="{{request.id}}">
-		<div class="image-order image-holder">
-			<img class="image-holder__img" src="{{ request.images?.length > 0 ? request.images[0].url : 'assets/img/icons/default.jpg'}}" alt="">
+<div class="order-main container">
+	<ul class="list-order">
+		<li class="item-order" *ngFor="let request of requests" id="{{request.id}}">
+			<div class="image-order image-holder">
+				<img class="image-holder__img" src="{{ request.images?.length > 0 ? request.images[0].url : 'assets/img/icons/default.jpg'}}" alt="">
+			</div>
+			<div class="desc-order">
+				<a class="name-order" [routerLink]="['../', request.id]">{{request.title}}</a>
+				<div class="short-text">{{request.text}}</div>
+				<a class="user-name" href="#">{{request.user}}</a>
+			</div>
+			<div class="price-order">{{request.price}}<span>грн.</span></div>
+		</li>
+	</ul>
+	<div class="sidebar">
+		<div class="sidebar-title">Фильтр</div>
+		<div class="list-tags">
+			<a class="list-tag-item" href="#">красота и здоровье</a>
+			<a class="list-tag-item" href="#">услуги для животных</a>
+			<a class="list-tag-item" href="#">творчекские услуги и дизайн</a>
+			<a class="list-tag-item" href="#">ремонт</a>
+			<a class="list-tag-item" href="#">бытовые услуги</a>
+			<a class="list-tag-item" href="#">фото и видео услуги</a>
+			<a class="list-tag-item" href="#">ремонт авто</a>
 		</div>
-		<div class="desc-order">
-			<a class="name-order" [routerLink]="['../', request.id]">{{request.title}} </a>
-			<div class="short-text">{{request.text}}</div>
-			<a class="user-name" href="#">{{request.user}}</a>
-		</div>
-		<div class="price-order">{{request.price}}<span>грн.</span></div>
-	</li>
-</ul>
+	</div>
+</div>
