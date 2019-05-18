@@ -33,7 +33,7 @@
 }
 
 .how-it-works {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .list-step {
@@ -64,6 +64,23 @@
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 16px;
+    color: #464748;
+}
+
+.make {
+    margin-bottom: 80px;
+}
+
+.make .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.make-title {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 22px;
     color: #464748;
 }
 

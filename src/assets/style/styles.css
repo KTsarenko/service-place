@@ -173,6 +173,7 @@ input[type='number'] {
 
 .btn-blue:hover {
     background-color: #025e8d;
+    color: #FFFFFF;
 }
 
 @media (max-width: 860px) {

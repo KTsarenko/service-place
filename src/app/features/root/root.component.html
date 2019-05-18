@@ -1,27 +1,27 @@
-<header class="header">
+<header class="header container">
 	<a class="logo image-holder" routerLink="/home">
 		<img class="image-holder__img" src="assets/img/logo.png" alt="">
 	</a>
 	<nav>
-		<div class="container">
-			<ul class="nav-list">
-				<li class="nav-list__nav-item">
-					<a class="nav-list__nav-link" routerLink="/home" routerLinkActive="active"
-					   [routerLinkActiveOptions]="{exact: true}">Главная</a>
-				</li>
-				<li class="nav-list__nav-item">
-					<a class="nav-list__nav-link" routerLink="customers" routerLinkActive="active">Заказы</a>
-				</li>
-				<li class="nav-list__nav-item">
-					<a class="nav-list__nav-link" routerLink="masters" routerLinkActive="active">Предложения</a>
-				</li>
-				<li class="nav-list__nav-item">
-					<a class="nav-list__nav-link" routerLink="create" routerLinkActive="active">Оформить заявку</a>
-				</li>
-			</ul>
-			<div class="nav-auth">
-				<a class="nav-auth__item" *ngIf="_fb.isLogined" routerLink="profile/{{_fb.userUuid}}" type="button">
-					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 482.9 482.9" xml:space="preserve">
+		<ul class="nav-list">
+			<li class="nav-list__nav-item">
+				<a class="nav-list__nav-link" routerLink="/home" routerLinkActive="active"
+				   [routerLinkActiveOptions]="{exact: true}">Главная</a>
+			</li>
+			<li class="nav-list__nav-item">
+				<a class="nav-list__nav-link" routerLink="customers" routerLinkActive="active">Заказы</a>
+			</li>
+			<li class="nav-list__nav-item">
+				<a class="nav-list__nav-link" routerLink="masters" routerLinkActive="active">Предложения</a>
+			</li>
+			<li class="nav-list__nav-item">
+				<a class="nav-list__nav-link" routerLink="create" routerLinkActive="active">Оформить заявку</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="nav-auth">
+		<a class="nav-auth__item" *ngIf="_fb.isLogined" routerLink="profile/{{_fb.userUuid}}" type="button">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 482.9 482.9" xml:space="preserve">
 						<g fill="#8f9194">
 							<path d="M239.7,260.2c0.5,0,1,0,1.6,0c0.2,0,0.4,0,0.6,0c0.3,0,0.7,0,1,0c29.3-0.5,53-10.8,70.5-30.5
 								c38.5-43.4,32.1-117.8,31.4-124.9c-2.5-53.3-27.7-78.8-48.5-90.7C280.8,5.2,262.7,0.4,242.5,0h-0.7c-0.1,0-0.3,0-0.4,0h-0.6
@@ -39,17 +39,17 @@
 								C447,415.5,446.9,388.8,446.8,383.6z"/>
 						</g>
 					</svg>
-				</a>
-				<a class="nav-auth__item" *ngIf="_fb.isLogined" (click)="logout()">
-					<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="95.667px" viewBox="0 0 95.667 95.667" width="95.667px" version="1.1" y="0px" x="0px">
+		</a>
+		<a class="nav-auth__item" *ngIf="_fb.isLogined" (click)="logout()">
+			<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" height="95.667px" viewBox="0 0 95.667 95.667" width="95.667px" version="1.1" y="0px" x="0px">
 						<g id="g5" fill="#bbbdbf">
 							<path d="m40.568 72.344-39.447-22.777c-0.619-0.356-1-1.018-1-1.731s0.381-1.375 1-1.732l39.447-22.78c0.619-0.357 1.381-0.357 2 0s1 1.018 1 1.732v10.605h34.052c1.104 0 2 0.896 2 2v20.344c0 1.104-0.896 2-2 2h-34.053v10.604c0 0.716-0.381 1.375-1 1.732-0.31 0.18-0.655 0.268-1 0.268s-0.69-0.088-0.999-0.265z"/>
 							<path id="path9" d="m80.775 0h-40.749c-1.104 0-2 0.896-2 2v6c0 1.104 0.896 2 2 2h40.749c2.632 0 4.771 2.141 4.771 4.771v66.125c0 2.631-2.141 4.771-4.771 4.771h-40.749c-1.104 0-2 0.896-2 2v6c0 1.104 0.896 2 2 2h40.749c8.146 0 14.771-6.627 14.771-14.771v-66.124c0-8.145-6.626-14.772-14.771-14.772z"/>
 						</g>
 					</svg>
-				</a>
-				<a class="nav-auth__item" routerLink="/auth" *ngIf="!_fb.isLogined" type="button">
-					<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+		</a>
+		<a class="nav-auth__item" routerLink="/auth" *ngIf="!_fb.isLogined" type="button">
+			<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 						 width="95.667px" height="95.667px" viewBox="0 0 95.667 95.667" style="enable-background:new 0 0 95.667 95.667;"
 						 xml:space="preserve">
 						<g>
@@ -63,10 +63,8 @@
 							</g>
 						</g>
 					</svg>
-				</a>
-			</div>
-		</div>
-	</nav>
+		</a>
+	</div>
 </header>
 
 <main>

@@ -1,19 +1,21 @@
 
 .header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ecedee;
 }
 
 .logo {
-    width: 100px;
-    padding: 20px 0;
+    width: 90px;
 }
 
 nav {
     width: 100%;
-    border-top: 1px solid #ecedee;
-    border-bottom: 1px solid #ecedee;
+    //border-top: 1px solid #ecedee;
+    //border-bottom: 1px solid #ecedee;
     padding: 10px 0;
 }
 
@@ -40,10 +42,8 @@ nav {
 }
 
 .nav-auth {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
 }
 
 .nav-auth__item {
