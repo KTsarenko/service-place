@@ -1,7 +1,7 @@
 <form [formGroup]="form" novalidate (ngSubmit)="submitCustomers()">
 	<div class="form-title">Заполните данные для создания заказа</div>
 	<div class="form-group">
-		<label>Что нужно сделать (кратко)?</label>
+		<label>Задание</label>
 		<input class="form-control" name="title" formControlName="title"/>
 		
 		<div class="alert alert-danger"
@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label>Подробно опишите ваше задание</label>
+		<label>Детальное описание</label>
 		<textarea class="form-control" rows="3" formControlName="text"></textarea>
 		
 		<div class="alert alert-danger"

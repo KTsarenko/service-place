@@ -210,18 +210,33 @@ input[type='number'] {
     width: auto;
 }
 
-
-.ngx-gallery-icon.ngx-gallery-arrow {
-    width: 30px;
-    height: 30px;
-    background-color: #007fc1;
-}
-
 .ngx-gallery-preview-icons .ngx-gallery-icon {
-    background: red;
-    display: inline-block;
-    cursor: pointer;
+    background-image: url("../img/icons/close.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     width: 25px;
     height: 25px;
-    z-index: 99;
+}
+
+.ngx-gallery-icon-content.fa-arrow-circle-right {
+    background-image: url("../img/icons/right-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.ngx-gallery-icon-content.fa-arrow-circle-left {
+    background-image: url("../img/icons/left-arrow.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+
+.ngx-gallery-arrow.ngx-gallery-disabled {
+    opacity: 0.2;
 }

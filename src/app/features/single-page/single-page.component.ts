@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {RequestService} from '../../core/services/request.service';
+import {RequestModel} from '../../core/models/request.model';
 
 
 @Component({
