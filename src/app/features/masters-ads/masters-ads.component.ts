@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestModel} from "../../core/models/request.model";
-import {RequestService} from "../../core/services/request.service";
+import {fbService} from '../../core/services/fb.service';
 
 @Component({
   selector: 'app-masters-ads',
@@ -11,7 +11,7 @@ export class MastersAdsComponent implements OnInit {
 
     public requests: Array<RequestModel>;
 
-    constructor(private _requestService: RequestService) {
+    constructor(private _fb: fbService) {
     }
 
     ngOnInit() {
@@ -19,7 +19,7 @@ export class MastersAdsComponent implements OnInit {
     }
 
     private getMastersRequest(): void {
-        this.requests = this._requestService.getMastersRequest();
+        this.requests = this._fb.getMasters();
     }
 
 }

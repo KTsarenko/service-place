@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {RequestService} from '../../core/services/request.service';
 import {NotificationsService} from 'angular2-notifications';
+import {fbService} from '../../core/services/fb.service';
 
 @Component({
     selector: 'app-create-masters',
@@ -13,7 +13,7 @@ export class CreateMastersComponent implements OnInit {
     public form: FormGroup;
     public isLoading: boolean = false;
 
-    constructor(private _requestService: RequestService,
+    constructor(private _fb: fbService,
                 private _notificationsService: NotificationsService) {
     }
 
@@ -33,7 +33,7 @@ export class CreateMastersComponent implements OnInit {
 
     submitMasters() {
         this.isLoading = true;
-        this._requestService.createMasters(this.form.value)
+        this._fb.createMasters(this.form.value)
             .then(res => {
                 console.log('Document written masters');
                 this._notificationsService.success('Success', null,{

@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {fbService} from '../services/fb.service';
 import {first} from 'rxjs/internal/operators';
 
 declare const firebase: any;
@@ -10,8 +9,7 @@ declare const firebase: any;
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-    constructor(private _fb: fbService,
-                private router: Router) {
+    constructor(private router: Router) {
     }
 
     canActivate(next: ActivatedRouteSnapshot,

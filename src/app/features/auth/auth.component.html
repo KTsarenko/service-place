@@ -6,15 +6,15 @@
 		<form [formGroup]="loginForm">
 			
 			<input type="text" placeholder="Email" name="username" formControlName="email" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-			<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-				<div *ngIf="f.email.errors.required">Username is required</div>
+				   [ngClass]="{ 'is-invalid': loginForm.get('email').dirty && loginForm.get('email').invalid }"/>
+			<div *ngIf="loginForm.get('email').dirty && loginForm.get('email').invalid" class="invalid-feedback">
+				<p>Username is required</p>
 			</div>
 			
 			<input type="password" placeholder="Пароль" formControlName="password" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
-			<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-				<div *ngIf="f.password.errors.required">Password is required</div>
+				   [ngClass]="{ 'is-invalid': loginForm.get('password').dirty && loginForm.get('password').invalid }"/>
+			<div *ngIf="loginForm.get('password').dirty && loginForm.get('password').invalid" class="invalid-feedback">
+				<p>Password is required</p>
 			</div>
 			<button type="submit" (click)="signIn()" [disabled]="loading">войти</button>
 		</form>
@@ -30,29 +30,29 @@
 	<div class="formAuth" *ngIf="showAuthForm == 'signup'">
 		<div class="title-form">Регистрация</div>
 		<!-- SignUp Form -->
-		<form [formGroup]="loginForm">
+		<form [formGroup]="signupForm">
 			<input type="text" placeholder="Имя" formControlName="name" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
-			<div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-				<div *ngIf="f.name.errors.required">Ведите имя</div>
+				   [ngClass]="{ 'is-invalid': signupForm.get('name').dirty && signupForm.get('name').invalid }"/>
+			<div *ngIf="signupForm.get('name').dirty && signupForm.get('name').invalid" class="invalid-feedback">
+				<p>Ведите имя</p>
 			</div>
 			
 			<input type="text" placeholder="Фамилия" formControlName="surname" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.surname.errors }"/>
-			<div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
-				<div *ngIf="f.surname.errors.required">Ведите фамилию</div>
+				   [ngClass]="{ 'is-invalid': signupForm.get('surname').dirty && signupForm.get('surname').invalid }"/>
+			<div *ngIf="signupForm.get('surname').dirty && signupForm.get('surname').invalid" class="invalid-feedback">
+				<p>Ведите фамилию</p>
 			</div>
 			
 			<input type="text" placeholder="Email" formControlName="email" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
-			<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-				<div *ngIf="f.email.errors.required">Ведите ваш email</div>
+				   [ngClass]="{ 'is-invalid': signupForm.get('email').dirty && signupForm.get('email').invalid }"/>
+			<div *ngIf="signupForm.get('email').dirty && signupForm.get('email').invalid" class="invalid-feedback">
+				<p>Ведите ваш email</p>
 			</div>
 			
 			<input type="password" placeholder="Пароль" formControlName="password" class="form-control"
-				   [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
-			<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-				<div *ngIf="f.password.errors.required">Укажите пароль</div>
+				   [ngClass]="{ 'is-invalid': signupForm.get('password').dirty && signupForm.get('password').invalid }"/>
+			<div *ngIf="signupForm.get('password').dirty && signupForm.get('password').invalid" class="invalid-feedback">
+				<p>Укажите пароль</p>
 			</div>
 			<button type="submit" (click)="signUp()" [disabled]="loading">создать</button>
 		</form>

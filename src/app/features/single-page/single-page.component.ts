@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-
-import {RequestService} from '../../core/services/request.service';
 import {RequestModel} from '../../core/models/request.model';
+import {fbService} from '../../core/services/fb.service';
 
 
 @Component({
@@ -13,11 +12,12 @@ import {RequestModel} from '../../core/models/request.model';
 
 export class SinglePageComponent implements OnInit {
 
-    public request: any;
+    public request: RequestModel;
     public galleryOptions = [];
     public galleryImages = [];
+    public hasLoaded = false;
 
-    constructor(private _requestService: RequestService,
+    constructor(private _fb: fbService,
                 private router: Router) {
         this.galleryOptions = [
             {
@@ -36,16 +36,17 @@ export class SinglePageComponent implements OnInit {
     ngOnInit() {
         const [blank, container, collection, id] = this.router.url.split('/');
         this.getSingleRequest(id, collection);
-        this.request = {};
+        // this.request = {};
     }
 
     private getSingleRequest(id, collection): void {
-        this._requestService.getSingleRequest(id, collection)
+        this._fb.getSingle(id, collection)
             .then(doc => {
                 if (doc.exists) {
                     const data = doc.data();
                     this.request = data;
                     this.galleryImages = this.setGalleryImg(data.images);
+                    this.hasLoaded = true;
                     // console.log(this.request);
                 } else {
                     console.log('No such document!');

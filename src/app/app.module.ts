@@ -5,7 +5,6 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './features/auth/auth.component';
 
-import {UserService} from './core/services/user.service';
 import {fbService} from './core/services/fb.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -33,7 +32,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
         SimpleNotificationsModule.forRoot()
     ],
-    providers: [UserService, fbService],
+    providers: [fbService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

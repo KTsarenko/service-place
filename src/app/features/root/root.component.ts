@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {fbService} from '../../core/services/fb.service';
-import {UserService} from '../../core/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +8,13 @@ import {UserService} from '../../core/services/user.service';
 })
 export class RootComponent implements OnInit {
 
-  constructor(private _userService: UserService,
-              public _fb: fbService) { }
+  constructor(public _fb: fbService) { }
 
   ngOnInit() {
   }
 
     public logout() {
-        this._userService.logout()
+        this._fb.logout()
             .then(res => {
                 console.log('logout', res);
             })
